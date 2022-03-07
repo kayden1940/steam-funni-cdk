@@ -1,4 +1,28 @@
+import { log } from "console";
+
 const axios = require("axios").default;
+const TwitterApi = require("twitter-api-v2").default;
+
+//twitter
+const callbackURL = `http://192.168.10.151:3000`;
+const twitterClient = new TwitterApi({
+  clientId: "blI1MUx6eWJNRldyLWt5Q0ZpU2w6MTpjaQ",
+  clientSecret: "cu0MPAMiMaLxSIuD352ZoL0yyvzVc0zY9R95uV76H9NtprL18T",
+});
+
+const auth = () => {
+//   const { url, codeVerifier, state } = twitterClient.generateOAuth2AuthLink(
+//     callbackURL,
+//     { scope: ["tweet.read", "tweet.write", "users.read", "offline.access"] }
+//   );
+
+//   console.log("url", url);
+  
+  //todo: save state and codeVerifier to database
+//   console.log("codeVerifier", codeVerifier);
+//   console.log("state", state);
+};
+auth();
 
 type Funni = String;
 type GameId = String;
@@ -54,7 +78,7 @@ const fetchFunnisByGameId = async (gameId: GameId) => {
         responseType: "json",
       });
       if (`data` in response) {
-        console.log("response", response.data);
+        // console.log("response", response.data);
       }
     };
 
